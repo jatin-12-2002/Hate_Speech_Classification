@@ -6,7 +6,7 @@ The dataset used in this project consists of labeled text for **Hate Speech Clas
 
 You can either download an existing dataset or use your custom data by formatting it to match the token-label format as required. Here is the Dataset [Link](data/dataset.zip).
 
-You can download the dataset from Kaggle also using this [Link](https://www.kaggle.com/datasets/suchindrakumar057/hate-speech-and-offensive-language-dataset/data)
+You can download the dataset from Kaggle also using this [Link](https://www.kaggle.com/datasets/suchindrakumar057/hate-speech-and-offensive-language-dataset/data).
 
 ## Installation
 

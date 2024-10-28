@@ -118,24 +118,39 @@ class TrainPipeline:
     def run_pipeline(self):
         logging.info("Entered the run_pipeline method of TrainPipeline class")
         try:
+            print(f"*******************")
+            print(f">>>>>> stage DATA INGESTION started <<<<<<")
             data_ingestion_artifacts = self.start_data_ingestion()
+            print(f">>>>>> stage DATA INGESTION completed <<<<<<\n\nx==========x")
 
+            print(f"*******************")
+            print(f">>>>>> stage DATA TRANSFORMATION started <<<<<<")
             data_transformation_artifacts = self.start_data_transformation(
                 data_ingestion_artifacts=data_ingestion_artifacts
             )
+            print(f">>>>>> stage DATA TRANSFORMATION completed <<<<<<\n\nx==========x")
 
+            print(f"*******************")
+            print(f">>>>>> stage MODEL TRAINING started <<<<<<")
             model_trainer_artifacts = self.start_model_trainer(
                 data_transformation_artifacts=data_transformation_artifacts
             )
-
+            print(f">>>>>> stage MODEL TRAINING completed <<<<<<\n\nx==========x")
+            print(f"*******************")
+                
+            print(f">>>>>> stage MODEL EVALUATION started <<<<<<")   
             model_evaluation_artifacts = self.start_model_evaluation(model_trainer_artifacts=model_trainer_artifacts,
                                                                     data_transformation_artifacts=data_transformation_artifacts
             ) 
 
             if not model_evaluation_artifacts.is_model_accepted:
                 raise Exception("Trained model is not better than the best model")
-            
+            print(f">>>>>> stage MODEL EVALUATION completed <<<<<<\n\nx==========x")
+            print(f"*******************")
+
+            print(f">>>>>> stage MODEL PUSHER started <<<<<<") 
             model_pusher_artifacts = self.start_model_pusher()
+            print(f">>>>>> stage MODEL PUSHER completed <<<<<<\n\nx==========x")
 
             logging.info("Exited the run_pipeline method of TrainPipeline class") 
 
