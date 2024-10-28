@@ -2,9 +2,11 @@
 
 ## Dataset
 
-The dataset used in this project consists of labeled text for **Hate Speech Classification**, where each word in the text is tagged with its corresponding entity label. The dataset follows the typical NER format with tokens and corresponding labels for various entity types such as **no hate** and **hate and abusive**.
+The dataset used in this project consists of labeled text for **Hate Speech Classification**, where each word in the text is tagged with its corresponding entity label. The dataset follows the typical format with tokens and corresponding labels for various entity types such as **no hate** and **hate and abusive**.
 
-You can either download an existing dataset or use your custom data by formatting it to match the token-label format as required. Here is the Dataset [Link](data/dataset.zip)
+You can either download an existing dataset or use your custom data by formatting it to match the token-label format as required. Here is the Dataset [Link](data/dataset.zip).
+
+You can download the dataset from Kaggle also using this [Link](https://www.kaggle.com/datasets/suchindrakumar057/hate-speech-and-offensive-language-dataset/data)
 
 ## Installation
 
@@ -66,11 +68,12 @@ aws s3 cp path/to/your/archive.zip s3://your-bucket-name/dataset.zip
 ```
 
 ### Step 9 (Optional)- Add best.pt model in model folder
-Follow this Step if you don't want to train model for 100 epochs as It will take a long time to complete training. I had already trained model named as **best.pt** for 100 epochs.
+Follow this Step if you don't want to train model for 30 epochs as It will take a long time to complete training. I had already trained model named as **model.h5** for 30 epochs. You need to insert the **tokenizer.pickle** in your project structure.
 
-As best.pt is very large in size(130 MB), So I cannot push it into github repository directly. So, you had to update it manually in and you had to create a **model folder** manually and insert the best.pt file in it.
+You can download the **model.h5** from [here](best_model/model.h5)
 
-You can download the **model.h5** from [here](https://drive.google.com/file/d/13bY4nDUeUfTG4jxPVpT6Bok0DHQaa_qn/view?usp=sharing)
+You can download the **tokenizer.pickle** from [here](best_model/tokenizer.pickle)
+
 
 ### Step 10 - Upload the model.h5 model in your S3 Bucket
 ```bash
@@ -84,7 +87,7 @@ python app.py
 
 ### Step 10 - Prediction application
 ```bash
-http://localhost:8080/docs
+http://localhost:8080/
 
 ```
 
