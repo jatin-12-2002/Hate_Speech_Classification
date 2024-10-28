@@ -36,12 +36,12 @@ jobs:
 
       - run:
           name: pull image from private repository
-          command: docker pull 022499021177.dkr.ecr.us-east-1.amazonaws.com/hate:latest
+          command: docker pull 022499021177.dkr.ecr.us-east-1.amazonaws.com/hatedemo:latest
           
       
       - run:
           name: run image
-          command: docker run -d -p 8080:8080 022499021177.dkr.ecr.us-east-1.amazonaws.com/hate:latest
+          command: docker run -d -p 8080:8080 022499021177.dkr.ecr.us-east-1.amazonaws.com/hatedemo:latest
 workflows:
   CICD:
     jobs:
